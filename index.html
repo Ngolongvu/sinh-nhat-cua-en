@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Có một món quà nhỏ đang chờ bạn 🎂</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<div id="glow"></div>
+
+<section class="stage on" id="s0">
+  <button class="switch" id="lightBtn" aria-label="Bật đèn">💡</button>
+  <h1>Có một món quà nhỏ đang chờ bạn</h1>
+  <p>Căn phòng đang tối. Chạm vào bóng đèn nhé.</p>
+</section>
+
+<section class="stage" id="s1">
+  <h1>Thổi nến nào, <span class="nm"></span> 🎂</h1>
+  <div class="cake" id="cake">
+    <div class="flame"></div><div class="candle"></div>
+    <div class="tier t2"><i class="drip"></i></div>
+    <div class="tier t1"><i class="drip"></i></div>
+    <div class="plate"></div>
+    <div class="smoke"></div>
+  </div>
+  <p>Nhắm mắt lại, ước một điều, rồi thổi nến.</p>
+  <div class="row">
+    <button id="blowBtn">Thổi nến 🌬️</button>
+    <button class="ghost" id="micBtn">Thổi bằng micro 🎤</button>
+  </div>
+</section>
+
+<section class="stage" id="s2">
+  <h1 id="wish"></h1>
+  <p>Điều ước của bạn đã được gửi đi.</p>
+  <button id="openBtn">Mở quà 🎁</button>
+</section>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+:root{--bg:#0b0a14;--pink:#ff69b4;--pink2:#ff99cc;--ink:#f6ecfb;--muted:#b7a9cc;--cake:#ffd6e6;--cake2:#f4a6c4;--flame:#ffc857}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Quicksand","Segoe UI",system-ui,sans-serif;overflow:hidden;transition:background 1.2s,color 1.2s;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+body.lit{background:linear-gradient(-45deg,#fee9f7,#e8e0ff,#ffeadf,#ffe3ef);background-size:400% 400%;animation:bg 15s ease infinite;color:#5b2a54}
+@keyframes bg{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+#glow{position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle 160px at var(--x,50%) var(--y,50%),rgba(255,255,255,.07),transparent);transition:opacity 1s}
+body.lit #glow{opacity:0}
+.stage{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px;text-align:center;opacity:0;pointer-events:none;transition:opacity .9s}
+.stage.on{opacity:1;pointer-events:auto}
+h1{font-family:"Bubblegum Sans","Comic Neue",cursive;font-weight:400;font-size:clamp(28px,7vw,46px);color:var(--pink);text-shadow:2px 2px 6px rgba(255,105,180,.3)}
+.nm{color:#ff4f9f}
+p{max-width:420px;line-height:1.6;color:var(--muted)}
+body.lit p{color:#8a5a86}
+button{font-family:inherit;font-weight:700;font-size:1.1rem;color:#fff;background:linear-gradient(45deg,var(--pink),var(--pink2));border:0;border-radius:50px;padding:14px 30px;cursor:pointer;box-shadow:0 5px 18px rgba(255,105,180,.4);transition:transform .25s}
+button:hover{transform:scale(1.07)}
+button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.ghost{background:transparent;color:var(--pink);box-shadow:inset 0 0 0 2px var(--pink)}
+.row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.switch{font-size:84px;background:none;box-shadow:none;padding:0;filter:grayscale(1) brightness(.55);animation:pulse 2s ease-in-out infinite}
+.switch:hover{filter:grayscale(.3) brightness(1);transform:scale(1.1)}
+@keyframes pulse{50%{transform:scale(1.08)}}
+
+.cake{position:relative;width:240px;height:190px;margin-top:80px}
+.tier{position:absolute;left:50%;transform:translateX(-50%);border-radius:16px 16px 8px 8px;overflow:hidden}
+.t1{bottom:12px;width:240px;height:84px;background:var(--cake2)}
+.t2{bottom:96px;width:164px;height:62px;background:var(--cake)}
+.drip{position:absolute;left:0;right:0;top:0;height:18px;background:#fff;opacity:.9;border-radius:0 0 14px 14px}
+.plate{position:absolute;bottom:0;left:-20px;right:-20px;height:14px;background:#fff;border-radius:50%;opacity:.8}
+.candle{position:absolute;bottom:158px;left:50%;width:11px;height:48px;margin-left:-5.5px;background:repeating-linear-gradient(45deg,#fff 0 6px,var(--pink) 6px 12px);border-radius:3px}
+.flame{position:absolute;bottom:204px;left:50%;width:18px;height:30px;margin-left:-9px;background:radial-gradient(ellipse at 50% 70%,#fff,var(--flame) 45%,#ff7a3d);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;box-shadow:0 0 34px 12px rgba(255,200,87,.5);animation:fl .15s infinite alternate;transform-origin:50% 100%;transition:opacity .5s,transform .5s}
+@keyframes fl{to{transform:scale(1.1,.92) rotate(3deg)}}
+.out .flame{opacity:0;transform:scale(.2);animation:none}
+.smoke{position:absolute;bottom:206px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:rgba(255,255,255,.7);opacity:0}
+.out .smoke{animation:smoke 2s ease-out}
+@keyframes smoke{0%{opacity:.8;transform:translateY(0) scale(1)}100%{opacity:0;transform:translate(14px,-90px) scale(9)}}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:5}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
